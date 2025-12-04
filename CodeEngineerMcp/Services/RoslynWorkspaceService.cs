@@ -1,8 +1,8 @@
-﻿
-using CodeEngineerMcp.Models;
+﻿using CodeEngineerMcp.Models;
 using Microsoft.CodeAnalysis;
 using Microsoft.CodeAnalysis.FindSymbols;
 using Microsoft.CodeAnalysis.MSBuild;
+using Microsoft.Extensions.Logging;
 
 namespace CodeEngineerMcp.Services;
 

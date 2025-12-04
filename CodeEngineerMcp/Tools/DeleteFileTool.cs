@@ -4,6 +4,7 @@ using System.Text.Json;
 using System.Text.RegularExpressions;
 using CodeEngineerMcp.Models;
 using CodeEngineerMcp.Services;
+using Microsoft.Extensions.Logging;
 using ModelContextProtocol.Server;
 
 namespace CodeEngineerMcp.Tools;
