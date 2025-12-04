@@ -1,0 +1,175 @@
+﻿# =========================
+# .NET / C# Ignore Rules
+# =========================
+
+# Build results
+[Dd]ebug/
+[Dd]ebugPublic/
+[Rr]elease/
+[Rr]eleases/
+x64/
+x86/
+[Ww][Ii][Nn]32/
+[Aa][Rr][Mm]/
+[Aa][Rr][Mm]64/
+bld/
+[Bb]in/
+[Oo]bj/
+[Ll]og/
+[Ll]ogs/
+
+# Visual Studio
+.vs/
+*.suo
+*.user
+*.userosscache
+*.sln.docstates
+*.userprefs
+
+# Visual Studio Code
+.vscode/
+*.code-workspace
+
+# Rider
+.idea/
+*.sln.iml
+
+# MSBuild
+*.log
+msbuild.binlog
+
+# NuGet
+*.nupkg
+*.snupkg
+nupkg/
+**/packages/*
+!**/packages/build/
+*.nuget.props
+*.nuget.targets
+project.lock.json
+project.fragment.lock.json
+artifacts/
+
+# Test Results
+[Tt]est[Rr]esult*/
+[Bb]uild[Ll]og.*
+TestResults/
+coverage*/
+*.coverage
+*.coveragexml
+*.trx
+
+# NCrunch
+_NCrunch_*
+.*crunch*.local.xml
+nCrunchTemp_*
+
+# Chutzpah
+_chutzpah*
+
+# Resharper
+_ReSharper*/
+*.[Rr]e[Ss]harper
+*.DotSettings.user
+
+# JetBrains Rider
+*.sln.iml
+
+# CodeRush
+.cr/
+
+# DotCover
+*.dotCover
+
+# AxoCover
+.axoCover/*
+!.axoCover/settings.json
+
+# Coverlet
+coverage*.json
+coverage*.xml
+coverage*.info
+
+# Windows
+Thumbs.db
+ehthumbs.db
+Desktop.ini
+$RECYCLE.BIN/
+
+# macOS
+.DS_Store
+.AppleDouble
+.LSOverride
+._*
+
+# Linux
+*~
+
+# Application specific
+appsettings.local.json
+appsettings.*.local.json
+secrets.json
+
+# User secrets
+secrets/
+
+# Publish profiles
+PublishProfiles/
+*.pubxml
+*.pubxml.user
+!**/PublishProfiles/[Ff]older[Pp]rofile.pubxml
+
+# Backup files
+*.bak
+*.backup
+*_backup/
+
+# Temporary files
+*.tmp
+*.temp
+*.swp
+
+# Package manager locks (optional - uncomment if you want to ignore)
+# packages.lock.json
+
+# Environment files
+.env
+.env.local
+.env.*.local
+*.env
+
+# Local tool installations
+.config/dotnet-tools.json.bak
+
+# BenchmarkDotNet
+BenchmarkDotNet.Artifacts/
+
+# ASP.NET Scaffolding
+ScaffoldingReadMe.txt
+
+# StyleCop
+StyleCopReport.xml
+
+# Files built by Visual Studio
+*_i.c
+*_p.c
+*_h.h
+*.ilk
+*.meta
+*.obj
+*.iobj
+*.pch
+*.pdb
+*.ipdb
+*.pgc
+*.pgd
+*.rsp
+*.sbr
+*.tlb
+*.tli
+*.tlh
+*.tmp_proj
+*_wpftmp.csproj
+*.vspscc
+*.vssscc
+.builds

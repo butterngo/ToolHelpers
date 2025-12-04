@@ -1,0 +1,62 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <OutputType>Exe</OutputType>
+    <TargetFramework>net8.0</TargetFramework>
+    <ImplicitUsings>enable</ImplicitUsings>
+    <Nullable>enable</Nullable>
+    <RootNamespace>CodeEngineerMcp</RootNamespace>
+    <AssemblyName>CodeEngineerMcp</AssemblyName>
+    
+    <!-- NuGet Package Metadata -->
+    <PackageId>CodeEngineerMcp</PackageId>
+    <Version>1.0.0</Version>
+    <Authors>VuNgo</Authors>
+    <Company>Your Company</Company>
+    <Product>Code Engineer MCP Server</Product>
+    <Description>A Model Context Protocol (MCP) server for code analysis and manipulation using Roslyn. Provides tools for searching code, finding symbols/references, analyzing dependencies, and file operations (create, edit, delete with reference checking).</Description>
+    <PackageTags>MCP;Roslyn;CodeAnalysis;AI;Claude;LLM;DotNet;CSharp</PackageTags>
+    <PackageProjectUrl>https://github.com/yourusername/CodeEngineerMcp</PackageProjectUrl>
+    <RepositoryUrl>https://github.com/yourusername/CodeEngineerMcp</RepositoryUrl>
+    <RepositoryType>git</RepositoryType>
+    <PackageLicenseExpression>MIT</PackageLicenseExpression>
+    <PackageReadmeFile>README.md</PackageReadmeFile>
+    <PackageIcon>icon.png</PackageIcon>
+    
+    <!-- Package Settings -->
+    <PackAsTool>true</PackAsTool>
+    <ToolCommandName>code-engineer-mcp</ToolCommandName>
+    <PackageOutputPath>./nupkg</PackageOutputPath>
+    <GeneratePackageOnBuild>false</GeneratePackageOnBuild>
+    
+    <!-- Source Link for debugging -->
+    <PublishRepositoryUrl>true</PublishRepositoryUrl>
+    <EmbedUntrackedSources>true</EmbedUntrackedSources>
+    <IncludeSymbols>true</IncludeSymbols>
+    <SymbolPackageFormat>snupkg</SymbolPackageFormat>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <PackageReference Include="Microsoft.Build.Locator" Version="1.7.8" />
+    <PackageReference Include="Microsoft.CodeAnalysis.CSharp.Workspaces" Version="4.11.0" />
+    <PackageReference Include="Microsoft.CodeAnalysis.Workspaces.MSBuild" Version="4.11.0" />
+    <PackageReference Include="Microsoft.Extensions.Hosting" Version="8.0.1" />
+    <PackageReference Include="ModelContextProtocol" Version="0.1.0-preview.14" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <None Include="..\README.md" Pack="true" PackagePath="\" Condition="Exists('..\README.md')" />
+    <None Include="icon.png" Pack="true" PackagePath="\" Condition="Exists('icon.png')" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Content Include="appsettings.json">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="appsettings.Development.json">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      <DependentUpon>appsettings.json</DependentUpon>
+    </Content>
+  </ItemGroup>
+
+</Project>

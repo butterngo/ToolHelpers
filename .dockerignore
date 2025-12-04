@@ -1,0 +1,66 @@
+﻿# =========================
+# Docker Ignore Rules
+# =========================
+
+# Git
+.git/
+.gitignore
+.gitattributes
+
+# GitHub
+.github/
+
+# Build results
+**/bin/
+**/obj/
+**/out/
+
+# IDE
+.vs/
+.vscode/
+.idea/
+*.suo
+*.user
+*.userosscache
+*.sln.docstates
+
+# Test results
+**/TestResults/
+**/coverage*/
+**/*.coverage
+**/*.trx
+
+# NuGet packages (restored in container)
+**/packages/
+nupkg/
+*.nupkg
+*.snupkg
+
+# Documentation
+*.md
+!README.md
+docs/
+
+# Misc
+**/*.log
+**/logs/
+Thumbs.db
+.DS_Store
+*.tmp
+*.temp
+*.bak
+
+# Local settings
+appsettings.local.json
+appsettings.*.local.json
+.env
+.env.*
+secrets.json
+
+# Windows files
+Desktop.ini
+$RECYCLE.BIN/
+
+# Backup files
+*_backup/
+*.backup
