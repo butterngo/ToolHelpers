@@ -40,12 +40,28 @@ public class RoslynWorkspaceService : IRoslynWorkspaceService, IDisposable
 			_logger.LogInformation("Loading solution: {SolutionPath}", solutionPath);
 
 			_workspace?.Dispose();
-			_workspace = MSBuildWorkspace.Create();
-
-			_workspace.RegisterWorkspaceFailedHandler((args) =>
+			
+			// Configure workspace to skip problematic targets (Razor/Blazor)
+			var properties = new Dictionary<string, string>
 			{
-				_logger.LogWarning("Workspace warning: {Message}", args.Diagnostic.Message);
-			});
+				{ "DesignTimeBuild", "true" },
+				{ "BuildingInsideVisualStudio", "true" },
+				{ "SkipCompilerExecution", "true" },
+				{ "ProvideCommandLineArgs", "true" },
+				{ "UseRazorSourceGenerator", "false" },
+				{ "GenerateResourceMSBuildArchitecture", "CurrentArchitecture" }
+			};
+			
+			_workspace = MSBuildWorkspace.Create(properties);
+
+			_workspace.WorkspaceFailed += (sender, args) =>
+			{
+				// Only log errors, skip warnings about missing targets
+				if (args.Diagnostic.Kind == WorkspaceDiagnosticKind.Failure)
+				{
+					_logger.LogWarning("Workspace issue: {Message}", args.Diagnostic.Message);
+				}
+			};
 
 			_solution = await _workspace.OpenSolutionAsync(solutionPath, cancellationToken: ct);
 
@@ -65,7 +81,19 @@ public class RoslynWorkspaceService : IRoslynWorkspaceService, IDisposable
 			_logger.LogInformation("Loading project: {ProjectPath}", projectPath);
 
 			_workspace?.Dispose();
-			_workspace = MSBuildWorkspace.Create();
+			
+			// Configure workspace to skip problematic targets (Razor/Blazor)
+			var properties = new Dictionary<string, string>
+			{
+				{ "DesignTimeBuild", "true" },
+				{ "BuildingInsideVisualStudio", "true" },
+				{ "SkipCompilerExecution", "true" },
+				{ "ProvideCommandLineArgs", "true" },
+				{ "UseRazorSourceGenerator", "false" },
+				{ "GenerateResourceMSBuildArchitecture", "CurrentArchitecture" }
+			};
+			
+			_workspace = MSBuildWorkspace.Create(properties);
 
 			var project = await _workspace.OpenProjectAsync(projectPath, cancellationToken: ct);
 			_solution = project.Solution;

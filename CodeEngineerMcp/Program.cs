@@ -1,4 +1,8 @@
-﻿using CodeEngineerMcp.Services;
+using CodeEngineerMcp.Services;
+using Microsoft.Extensions.DependencyInjection;
+using Microsoft.Extensions.Hosting;
+using Microsoft.Extensions.Logging;
+
 
 var builder = Host.CreateApplicationBuilder(args);
 

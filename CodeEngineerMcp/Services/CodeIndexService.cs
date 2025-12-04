@@ -1,4 +1,4 @@
-﻿using CodeEngineerMcp.Models;
+using CodeEngineerMcp.Models;
 using Microsoft.Extensions.Logging;
 using System.Collections.Concurrent;
 using System.Text.RegularExpressions;
