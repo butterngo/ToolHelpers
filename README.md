@@ -1,9 +1,9 @@
 ﻿# Code Engineer MCP Server
 
 [![License](https://img.shields.io/badge/license-MIT-blue.svg)](LICENSE)
-[![.NET](https://img.shields.io/badge/.NET-8.0-purple.svg)](https://dotnet.microsoft.com/)
+[![.NET](https://img.shields.io/badge/.NET-10.0-purple.svg)](https://dotnet.microsoft.com/)
 
-A Model Context Protocol (MCP) server for code analysis, file manipulation, testing, and Git operations, built with .NET 8 and Roslyn.
+A Model Context Protocol (MCP) server for code analysis, file manipulation, testing, and Git operations, built with .NET 10 and Roslyn.
 
 ## Installation
 
