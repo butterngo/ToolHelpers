@@ -1,4 +1,4 @@
-﻿using System.ComponentModel;
+using System.ComponentModel;
 using System.Text.Json;
 using CodeEngineerMcp.Services;
 using Microsoft.CodeAnalysis;
@@ -19,6 +19,8 @@ public class FindSymbolTool
 	[McpServerTool(Name = "find_symbol")]
 	[Description("Find symbol definitions (classes, methods, properties, etc.) by name using Roslyn semantic analysis. Requires a solution to be loaded via SOLUTION_PATH environment variable.")]
 	public async Task<string> FindSymbolAsync(
+		[Description("Root directory path to search in")]
+		string rootPath,
 		[Description("Name of the symbol to find (class, method, property, etc.)")]
 		string symbolName,
 

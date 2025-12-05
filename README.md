@@ -49,27 +49,6 @@ dotnet build
 | `run_specific_test` | Run a single test by fully qualified name |
 | `list_tests` | Discover and list all available tests |
 
-#### Conflict Resolution
-| Tool | Description |
-|------|-------------|
-| `git_get_conflicts` | Get detailed conflict info with both sides' content |
-| `git_resolve_conflict` | Resolve using `ours`, `theirs`, or `manual` strategy |
-| `git_abort_merge` | Abort merge and restore pre-merge state |
-| `git_continue_merge` | Complete merge after resolving conflicts |
-
-#### History & Diff
-| Tool | Description |
-|------|-------------|
-| `git_log` | Show commit history with filters (author, date, path) |
-| `git_diff` | Show changes (staged/unstaged, between commits) |
-
-#### Remote & Stash
-| Tool | Description |
-|------|-------------|
-| `git_remote` | List, add, or remove remotes |
-| `git_fetch` | Fetch from remotes with prune option |
-| `git_stash` | Push/pop/apply/list/drop/clear stashes |
-
 ## Quick Start
 
 ### 1. Build the Project
