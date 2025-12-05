@@ -1,4 +1,4 @@
-﻿# Code Engineer MCP Server
+# Code Engineer MCP Server
 
 [![License](https://img.shields.io/badge/license-MIT-blue.svg)](LICENSE)
 [![.NET](https://img.shields.io/badge/.NET-8.0-purple.svg)](https://dotnet.microsoft.com/)
@@ -48,24 +48,6 @@ dotnet build
 | `run_tests` | Run .NET tests with filters, coverage, and detailed results |
 | `run_specific_test` | Run a single test by fully qualified name |
 | `list_tests` | Discover and list all available tests |
-
-### 🔀 Git Tools
-
-#### Core Operations
-| Tool | Description |
-|------|-------------|
-| `git_status` | Get repo status (staged, unstaged, untracked, conflicts) |
-| `git_pull` | Pull with rebase/ff-only options, auto-detects conflicts |
-| `git_push` | Push with force/set-upstream/tags options |
-| `git_commit` | Commit with -a/--amend/--allow-empty options |
-| `git_add` | Stage files (supports patterns and deletions) |
-
-#### Branch Operations
-| Tool | Description |
-|------|-------------|
-| `git_branch` | List, create, or delete branches |
-| `git_checkout` | Switch branches, create new branches, restore files |
-| `git_merge` | Merge branches with conflict detection |
 
 #### Conflict Resolution
 | Tool | Description |
