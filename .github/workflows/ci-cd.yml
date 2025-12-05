@@ -8,7 +8,7 @@ on:
     branches: [ main, master ]
 
 env:
-  DOTNET_VERSION: '10.0.x'
+  DOTNET_VERSION: '8.0.x'
 
 jobs:
   build:
@@ -21,16 +21,18 @@ jobs:
       uses: actions/setup-dotnet@v4
       with:
         dotnet-version: ${{ env.DOTNET_VERSION }}
-        dotnet-quality: 'preview'
     
     - name: Restore dependencies
       run: dotnet restore
+      working-directory: CodeEngineerMcp
     
     - name: Build
       run: dotnet build --configuration Release --no-restore
+      working-directory: CodeEngineerMcp
     
     - name: Test
-      run: dotnet test --configuration Release --verbosity normal --collect:"XPlat Code Coverage" --no-restore
+      run: dotnet test --configuration Release --no-build --verbosity normal --collect:"XPlat Code Coverage"
+      working-directory: CodeEngineerMcp.UT
     
     - name: Upload coverage reports
       uses: codecov/codecov-action@v3
@@ -49,20 +51,21 @@ jobs:
       uses: actions/setup-dotnet@v4
       with:
         dotnet-version: ${{ env.DOTNET_VERSION }}
-        dotnet-quality: 'preview'
     
     - name: Extract version from tag
       id: get_version
       run: echo "VERSION=${GITHUB_REF#refs/tags/v}" >> $GITHUB_OUTPUT
     
     - name: Pack
-      run: dotnet pack CodeEngineerMcp --configuration Release -p:Version=${{ steps.get_version.outputs.VERSION }} --output ./nupkg
+      run: dotnet pack --configuration Release -p:Version=${{ steps.get_version.outputs.VERSION }} --output ./nupkg
+      working-directory: CodeEngineerMcp
     
     - name: Push to NuGet
       run: dotnet nuget push ./nupkg/*.nupkg --api-key ${{ secrets.NUGET_API_KEY }} --source https://api.nuget.org/v3/index.json --skip-duplicate
+      working-directory: CodeEngineerMcp
     
     - name: Create GitHub Release
       uses: softprops/action-gh-release@v1
       with:
-        files: ./nupkg/*.nupkg
+        files: CodeEngineerMcp/nupkg/*.nupkg
         generate_release_notes: true

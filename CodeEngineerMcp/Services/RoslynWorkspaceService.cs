@@ -54,14 +54,14 @@ public class RoslynWorkspaceService : IRoslynWorkspaceService, IDisposable
 			
 			_workspace = MSBuildWorkspace.Create(properties);
 
-			_workspace.WorkspaceFailed += (sender, args) =>
+			_workspace.RegisterWorkspaceFailedHandler(args =>
 			{
 				// Only log errors, skip warnings about missing targets
 				if (args.Diagnostic.Kind == WorkspaceDiagnosticKind.Failure)
 				{
 					_logger.LogWarning("Workspace issue: {Message}", args.Diagnostic.Message);
 				}
-			};
+			});
 
 			_solution = await _workspace.OpenSolutionAsync(solutionPath, cancellationToken: ct);
 
